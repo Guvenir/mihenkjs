@@ -2,4 +2,4 @@
 
 ![alt tag](http://guvenir.github.io/Mihenk/img/drawing3.svg)
 
-Mihenk d3.js based chart library
+d3.js based chart library [Mihenk](http://guvenir.github.io/Mihenk/)
