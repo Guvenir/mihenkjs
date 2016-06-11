@@ -1,5 +1,5 @@
 /*
-Copyright (C) 05.06.2016 Ömer Güvenir
+Copyright (C) 2016 Ömer Güvenir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -51,6 +51,7 @@ mihenk.barhorizontal = function(veri) {
     //ranges = veri.ranges;
     grafik = veri.opt;
     if (dset !== undefined) {
+        //console.log("vetical")
         barhorizontal();
     }
 };
@@ -105,7 +106,7 @@ function barchart() {
             ymax = dset[t].y;
         }
     }
-
+    //console.log(xmin, xmax, '|', ymin, ymax);
     ranges[0].x_range = [xmin - 1, xmax + 1];
     ranges[0].y_range = [ymin - 1, ymax + 1];
     //
@@ -182,8 +183,10 @@ function barchart() {
 
     //Zoom ve label ların ayarlanması    
     if (grafik.zoom === true && grafik.x_labels.length === 0 && grafik.y_labels.length === 0) {
+        //console.log(grafik.x_labels.length, grafik.y_labels.length);
         svg.call(zoom);
     } else {
+        //console.log(grafik.x_labels.length, xdata.length);
         if (grafik.x_labels.length !== 0) {
             xAxis.tickFormat(function(d, i) { return grafik.x_labels[i]; });
             svg.select(".x.axis").call(xAxis);
@@ -331,6 +334,7 @@ function barhorizontal() {
             ymax = dset[t].y;
         }
     }
+    //console.log(xmin, xmax, '|', ymin, ymax);
     ranges[0].x_range = [xmin - 1, xmax + 1];
     ranges[0].y_range = [ymin - 1, ymax + 1];
     //
@@ -411,8 +415,10 @@ function barhorizontal() {
 
     //Zoom ve label ların ayarlanması    
     if (grafik.zoom === true && grafik.x_labels.length === 0 && grafik.y_labels.length === 0) {
+        //console.log(grafik.x_labels.length, grafik.y_labels.length);
         svg.call(zoom);
     } else {
+        //console.log(grafik.x_labels.length, xdata.length);
         if (grafik.x_labels.length !== 0) {
             xAxis.tickFormat(function(d, i) { return grafik.x_labels[i]; });
             svg.select(".x.axis").call(xAxis);
@@ -543,6 +549,7 @@ function barhorizontal() {
 function boxchart() {
     //
     var xmin, xmax, ymin, ymax;
+    //console.log(dset);
     xmin = dset[0].x;
     xmax = dset[0].x;
     ymin = dset[0].ymin;
@@ -562,6 +569,7 @@ function boxchart() {
             ymax = dset[t].ymax;
         }
     }
+    //console.log(xmin, xmax, '|', ymin, ymax);
     ranges[0].x_range = [xmin - 1, xmax + 1];
     ranges[0].y_range = [ymin - 1, ymax + 1];
     //
@@ -653,8 +661,10 @@ function boxchart() {
         .range([height, 0]);
     //Zoom ve label ların ayarlanması    
     if (grafik.zoom === true && grafik.x_labels.length === 0 && grafik.y_labels.length === 0) {
+        //console.log(grafik.x_labels.length, grafik.y_labels.length);
         svg.call(zoom);
     } else {
+        //console.log(grafik.x_labels.length, xdata.length);
         if (grafik.x_labels.length !== 0) {
             xAxis.tickFormat(function(d, i) { return grafik.x_labels[i]; });
             svg.select(".x.axis").call(xAxis);
@@ -839,6 +849,7 @@ function boxchart() {
 function error() {
     //
     var xmin, xmax, ymin, ymax;
+    //console.log(dset);
     xmin = dset[0].x;
     xmax = dset[0].x;
     ymin = dset[0].ymin;
@@ -858,6 +869,7 @@ function error() {
             ymax = dset[t].ymax;
         }
     }
+    //console.log(xmin, xmax, '|', ymin, ymax);
     ranges[0].x_range = [xmin - 1, xmax + 1];
     ranges[0].y_range = [ymin - 1, ymax + 1];
     //
@@ -948,8 +960,10 @@ function error() {
         .range([height, 0]);
     //Zoom ve label ların ayarlanması    
     if (grafik.zoom === true && grafik.x_labels.length === 0 && grafik.y_labels.length === 0) {
+        //console.log(grafik.x_labels.length, grafik.y_labels.length);
         svg.call(zoom);
     } else {
+        //console.log(grafik.x_labels.length, xdata.length);
         if (grafik.x_labels.length !== 0) {
             xAxis.tickFormat(function(d, i) { return grafik.x_labels[i]; });
             svg.select(".x.axis").call(xAxis);
@@ -1141,6 +1155,7 @@ function line() {
             ymax = dset[t].y;
         }
     }
+    //console.log(xmin, xmax, '|', ymin, ymax);
     ranges[0].x_range = [xmin - 1, xmax + 1];
     ranges[0].y_range = [ymin - 1, ymax + 1];
     //
@@ -1229,8 +1244,10 @@ function line() {
         .range([height, 0]);
     //Zoom ve label ların ayarlanması    
     if (grafik.zoom === true && grafik.x_labels.length === 0 && grafik.y_labels.length === 0) {
+        //console.log(grafik.x_labels.length, grafik.y_labels.length);
         svg.call(zoom);
     } else {
+        //console.log(grafik.x_labels.length, xdata.length);
         if (grafik.x_labels.length !== 0) {
             xAxis.tickFormat(function(d, i) { return grafik.x_labels[i]; });
             svg.select(".x.axis").call(xAxis);
@@ -1438,4 +1455,276 @@ function convert(xdata, ydata) {
             dset.push({ "x": xdata[i], "y": ydata[i] });
         }
     }
+    //console.log("convert", dset);
 }
+
+
+//saveSvgasPNG  --- https://github.com/exupero/saveSvgAsPng
+
+(function() {
+  var out$ = typeof exports != 'undefined' && exports || typeof define != 'undefined' && {} || this;
+
+  var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
+
+  function isElement(obj) {
+    return obj instanceof HTMLElement || obj instanceof SVGElement;
+  }
+
+  function requireDomNode(el) {
+    if (!isElement(el)) {
+      throw new Error('an HTMLElement or SVGElement is required; got ' + el);
+    }
+  }
+
+  function isExternal(url) {
+    return url && url.lastIndexOf('http',0) == 0 && url.lastIndexOf(window.location.host) == -1;
+  }
+
+  function inlineImages(el, callback) {
+    requireDomNode(el);
+
+    var images = el.querySelectorAll('image'),
+        left = images.length,
+        checkDone = function() {
+          if (left === 0) {
+            callback();
+          }
+        };
+
+    checkDone();
+    for (var i = 0; i < images.length; i++) {
+      (function(image) {
+        var href = image.getAttributeNS("http://www.w3.org/1999/xlink", "href");
+        if (href) {
+          if (isExternal(href.value)) {
+            console.warn("Cannot render embedded images linking to external hosts: "+href.value);
+            return;
+          }
+        }
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        href = href || image.getAttribute('href');
+        if (href) {
+          img.src = href;
+          img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+            image.setAttributeNS("http://www.w3.org/1999/xlink", "href", canvas.toDataURL('image/png'));
+            left--;
+            checkDone();
+          }
+          img.onerror = function() {
+            console.log("Could not load "+href);
+            left--;
+            checkDone();
+          }
+        } else {
+          left--;
+          checkDone();
+        }
+      })(images[i]);
+    }
+  }
+
+  function styles(el, selectorRemap) {
+    var css = "";
+    var sheets = document.styleSheets;
+    for (var i = 0; i < sheets.length; i++) {
+      try {
+        var rules = sheets[i].cssRules;
+      } catch (e) {
+        console.warn("Stylesheet could not be loaded: "+sheets[i].href);
+        continue;
+      }
+
+      if (rules != null) {
+        for (var j = 0; j < rules.length; j++) {
+          var rule = rules[j];
+          if (typeof(rule.style) != "undefined") {
+            var match, selectorText;
+
+            try {
+              selectorText = rule.selectorText;
+            } catch(err) {
+              console.warn('The following CSS rule has an invalid selector: "' + rule + '"', err);
+            }
+
+            try {
+              if (selectorText) {
+                match = el.querySelector(selectorText);
+              }
+            } catch(err) {
+              console.warn('Invalid CSS selector "' + selectorText + '"', err);
+            }
+
+            if (match) {
+              var selector = selectorRemap ? selectorRemap(rule.selectorText) : rule.selectorText;
+              css += selector + " { " + rule.style.cssText + " }\n";
+            } else if(rule.cssText.match(/^@font-face/)) {
+              css += rule.cssText + '\n';
+            }
+          }
+        }
+      }
+    }
+    return css;
+  }
+
+  function getDimension(el, clone, dim) {
+    var v = (el.viewBox && el.viewBox.baseVal && el.viewBox.baseVal[dim]) ||
+      (clone.getAttribute(dim) !== null && !clone.getAttribute(dim).match(/%$/) && parseInt(clone.getAttribute(dim))) ||
+      el.getBoundingClientRect()[dim] ||
+      parseInt(clone.style[dim]) ||
+      parseInt(window.getComputedStyle(el).getPropertyValue(dim));
+    return (typeof v === 'undefined' || v === null || isNaN(parseFloat(v))) ? 0 : v;
+  }
+
+  function reEncode(data) {
+    data = encodeURIComponent(data);
+    data = data.replace(/%([0-9A-F]{2})/g, function(match, p1) {
+      var c = String.fromCharCode('0x'+p1);
+      return c === '%' ? '%25' : c;
+    });
+    return decodeURIComponent(data);
+  }
+
+  out$.svgAsDataUri = function(el, options, cb) {
+    requireDomNode(el);
+
+    options = options || {};
+    options.scale = options.scale || 1;
+    var xmlns = "http://www.w3.org/2000/xmlns/";
+
+    inlineImages(el, function() {
+      var outer = document.createElement("div");
+      var clone = el.cloneNode(true);
+      var width, height;
+      if(el.tagName == 'svg') {
+        width = options.width || getDimension(el, clone, 'width');
+        height = options.height || getDimension(el, clone, 'height');
+      } else if(el.getBBox) {
+        var box = el.getBBox();
+        width = box.x + box.width;
+        height = box.y + box.height;
+        clone.setAttribute('transform', clone.getAttribute('transform').replace(/translate\(.*?\)/, ''));
+
+        var svg = document.createElementNS('http://www.w3.org/2000/svg','svg')
+        svg.appendChild(clone)
+        clone = svg;
+      } else {
+        console.error('Attempted to render non-SVG element', el);
+        return;
+      }
+
+      clone.setAttribute("version", "1.1");
+      if (!clone.getAttribute('xmlns')) {
+        clone.setAttributeNS(xmlns, "xmlns", "http://www.w3.org/2000/svg");
+      }
+      if (!clone.getAttribute('xmlns:xlink')) {
+        clone.setAttributeNS(xmlns, "xmlns:xlink", "http://www.w3.org/1999/xlink");
+      }
+      clone.setAttribute("width", width * options.scale);
+      clone.setAttribute("height", height * options.scale);
+      clone.setAttribute("viewBox", [
+        options.left || 0,
+        options.top || 0,
+        width,
+        height
+      ].join(" "));
+
+      var fos = clone.querySelectorAll('foreignObject > *');
+      for (var i = 0; i < fos.length; i++) {
+        fos[i].setAttributeNS(xmlns, "xmlns", "http://www.w3.org/1999/xhtml");
+      }
+
+      outer.appendChild(clone);
+
+      var css = styles(el, options.selectorRemap);
+      var s = document.createElement('style');
+      s.setAttribute('type', 'text/css');
+      s.innerHTML = "<![CDATA[\n" + css + "\n]]>";
+      var defs = document.createElement('defs');
+      defs.appendChild(s);
+      clone.insertBefore(defs, clone.firstChild);
+
+      var svg = doctype + outer.innerHTML;
+      var uri = 'data:image/svg+xml;base64,' + window.btoa(reEncode(svg));
+      if (cb) {
+        cb(uri);
+      }
+    });
+  }
+
+  out$.svgAsPngUri = function(el, options, cb) {
+    requireDomNode(el);
+
+    out$.svgAsDataUri(el, options, function(uri) {
+      var image = new Image();
+      image.onload = function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        var context = canvas.getContext('2d');
+        if(options && options.backgroundColor){
+          context.fillStyle = options.backgroundColor;
+          context.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        context.drawImage(image, 0, 0);
+        var a = document.createElement('a'), png;
+        try {
+          png = canvas.toDataURL('image/png');
+        } catch (e) {
+          if ((typeof SecurityError !== 'undefined' && e instanceof SecurityError) || e.name == "SecurityError") {
+            console.error("Rendered SVG images cannot be downloaded in this browser.");
+            return;
+          } else {
+            throw e;
+          }
+        }
+        cb(png);
+      }
+      image.onerror = function(error) {
+        console.error('There was an error loading the data URI as an image', error);
+      }
+      image.src = uri;
+    });
+  }
+
+  function download(name, uri) {
+    var a = document.createElement('a');
+    a.download = name;
+    a.href = uri;
+    document.body.appendChild(a);
+    a.addEventListener("click", function(e) {
+      a.parentNode.removeChild(a);
+    });
+    a.click();
+  }
+
+  out$.saveSvg = function(el, name, options) {
+    requireDomNode(el);
+
+    options = options || {};
+    out$.svgAsDataUri(el, options, function(uri) {
+      download(name, uri);
+    });
+  }
+
+  out$.saveSvgAsPng = function(el, name, options) {
+    requireDomNode(el);
+
+    options = options || {};
+    out$.svgAsPngUri(el, options, function(uri) {
+      download(name, uri);
+    });
+  }
+
+  // if define is defined create as an AMD module
+  if (typeof define !== 'undefined') {
+    define(function() {
+      return out$;
+    });
+  }
+})();

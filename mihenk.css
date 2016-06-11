@@ -1,5 +1,5 @@
 /*
-Copyright (C) 05.06.2016 Ömer Güvenir
+Copyright (C) 2016 Ömer Güvenir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,157 +16,166 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 * {
-    font-family: 'Nunito', sans-serif;
-}
-
-text {
-    font: 12px Arial;
-    fill: #777;
-}
-
-.axis text {
-    font: 12px Arial;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #333;
-    opacity: 0.8;
-    shape-rendering: crispEdges;
-}
-
-.x.axis path {
-    fill: none;
-    stroke: #6B6B6B;
-    shape-rendering: crispEdges;
-}
-
-.tick text {
-    font-size: 12px;
-    color: #eaeaea;
-}
-
-.tick line {
-    opacity: 0.1;
-}
-
-.labell,
-.count,
-.percent {
-    font-size: 12px ! important;
-    color: #ccc;
-}
-
-.hist.x.axis path {
-    fill: none;
-    stroke: none;
-    /*x in çizgisi buradan ayarlanıyor*/
-    shape-rendering: crispEdges;
-}
-
-rect {
-    stroke-width: 2;
-}
-
-.barv.tooltip {
-    background: #212121;
-    box-shadow: 0 0 5px #c1c1c1;
-    color: #757575;
-    display: none;
-    font-size: 15px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    width: 100px;
-    height: 60px;
-    z-index: 1;
-}
-.barh.tooltip {
-    background: #212121;
-    box-shadow: 0 0 5px #c1c1c1;
-    color: #757575;
-    display: none;
-    font-size: 15px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    width: 100px;
-    height: 60px;
-    z-index: 1;
-}
-.box.tooltip2 {
-    background: #212121;
-    box-shadow: 0 0 5px #c1c1c1;
-    color: #757575;
-    display: none;
-    font-size: 10px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    width: 125px;
-    height: 100px;
-    z-index: 1;
-}
-.error.tooltip {
-    background: #212121;
-    box-shadow: 0 0 5px #c1c1c1;
-    color: #757575;
-    display: none;
-    font-size: 15px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    width: 100px;
-    height: 60px;
-    z-index: 1;
-}
-.line.tooltip {
-    background: #212121;
-    box-shadow: 0 0 5px #c1c1c1;
-    color: #757575;
-    display: none;
-    font-size: 15px;
-    padding: 10px;
-    position: absolute;
-    text-align: center;
-    width: 100px;
-    height: 60px;
-    z-index: 1;
-}
-
-rect {
-    cursor: pointer;
-    stroke-width: 2;
-}
-
-rect.disabled {
-    fill: transparent !important;
-
-h1 {
-    font-size: 14px;
-    text-align: center;
-}
-
-.axis text {
-    font: 14px Arial;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #eaeaea;
-}
-
-.svg-container {
-    position: relative;
-    width: 100%;
-    /* container-width */
-    height: 0;
-    padding-top: 56%;
-    /* (svg-height/svg-width) * container-width => (500/960) * 100 */
-}
-
-.svg-container > svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        text {
+            font: 12px Arial;
+            fill: #777;
+        }
+        
+        .axis text {
+            font: 12px Arial;
+        }
+        
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #333;
+            opacity: 0.8;
+            shape-rendering: crispEdges;
+        }
+        
+        .x.axis path {
+            fill: none;
+            stroke: #6B6B6B;
+            shape-rendering: crispEdges;
+        }
+        
+        .tick text {
+            font-size: 12px;
+            color: #eaeaea;
+        }
+        
+        .tick line {
+            opacity: 0.1;
+        }
+        
+        .labell,
+        .count,
+        .percent {
+            font-size: 12px ! important;
+            color: #ccc;
+        }
+        /*histogram ve density*/
+        
+        .hist.x.axis path {
+            fill: none;
+            stroke: none;
+            /*x in çizgisi buradan ayarlanıyor*/
+            shape-rendering: crispEdges;
+        }
+        
+        rect {
+            stroke-width: 2;
+        }
+        
+        .barv.tooltip {
+            background: #212121;
+            box-shadow: 0 0 5px #c1c1c1;
+            color: #757575;
+            display: none;
+            font-size: 15px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+            height: 60px;
+            z-index: 1;
+        }
+        .barh.tooltip {
+            background: #212121;
+            box-shadow: 0 0 5px #c1c1c1;
+            color: #757575;
+            display: none;
+            font-size: 15px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+            height: 60px;
+            z-index: 1;
+        }
+        .box.tooltip2 {
+            background: #212121;
+            box-shadow: 0 0 5px #c1c1c1;
+            color: #757575;
+            display: none;
+            font-size: 10px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            width: 125px;
+            height: 115px;
+            z-index: 1;
+        }
+        .error.tooltip {
+            background: #212121;
+            box-shadow: 0 0 5px #c1c1c1;
+            color: #757575;
+            display: none;
+            font-size: 15px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+            height: 60px;
+            z-index: 1;
+        }
+        .line.tooltip {
+            background: #212121;
+            box-shadow: 0 0 5px #c1c1c1;
+            color: #757575;
+            display: none;
+            font-size: 15px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+            height: 60px;
+            z-index: 1;
+        }
+        
+        rect {
+            cursor: pointer;
+            /* NEW */
+            stroke-width: 2;
+        }
+        
+        rect.disabled {
+            /* NEW */
+            fill: transparent !important;
+            /* NEW */
+        }
+        /* NEW */
+        
+        h1 {
+            /* NEW */
+            font-size: 14px;
+            /* NEW */
+            text-align: center;
+            /* NEW */
+        }
+        
+        .axis text {
+            font: 14px Arial;
+            font-family: 'Open Sans Condensed', sans-serif;
+            color: #eaeaea;
+        }
+        
+        .svg-container {
+            position: relative;
+            width: 100%;
+            /* container-width */
+            height: 0;
+            padding-top: 56%;
+            /* (svg-height/svg-width) * container-width => (500/960) * 100 */
+        }
+        
+        .svg-container > svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
