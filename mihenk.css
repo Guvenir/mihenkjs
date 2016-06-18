@@ -136,6 +136,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             z-index: 1;
         }
         
+        .bubble.tooltip {
+            background: #212121;
+            box-shadow: 0 0 5px #c1c1c1;
+            color: #757575;
+            display: none;
+            font-size: 15px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+            height: 60px;
+            z-index: 1;
+        }
+        
         rect {
             cursor: pointer;
             /* NEW */
